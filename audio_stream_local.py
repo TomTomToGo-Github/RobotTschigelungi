@@ -14,7 +14,8 @@
 
 import sounddevice
 sounddevice.query_devices()  # get list of devices
-sounddevice.default.device  # get list of ids (int) of devices [microphone_id, speaker_id]
+sounddevice.default.device  # get list of ids (int) of devices [microphone_id, 
+# speaker_id]
 
 
 # # # # Use audio stream without sending through socket
@@ -51,8 +52,7 @@ sounddevice.default.device  # get list of ids (int) of devices [microphone_id, s
 # # #     # # frame_data = message
 # # #     # data = data[msg_size:]
 # # #     # frame = pickle.loads(frame_data)
-    
-    
-    
+
+
 # # #     # audio_get.put(frame)
 # # #     time_passed = time.time_ns()
