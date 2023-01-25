@@ -1,6 +1,6 @@
 # See https://pyshine.com/Socket-Programming-send-receive-live-audio/
 # Make sure to also pip install python_dotenv, keras, opencv-python, numpy,
-# matplotlib, sounddevice
+# matplotlib, sounddevice, soundfile, tensorflow
 #  
 # Usage: run "python .\audio_socket_server.py" and then from another terminal
 # "python .\audio_socket_client.py"

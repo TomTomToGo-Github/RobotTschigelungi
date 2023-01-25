@@ -3,7 +3,7 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
-        "--ignore=W291"
+        "--ignore=W291,E266"
     ],
     //
     "editor.formatOnSave": false,
@@ -11,5 +11,6 @@
     //
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.terminal.activateEnvironment": true,
+    // "python.defaultInterpreterPath": "c:/Users/thoma/Desktop/Tommy/Programmieren/RobotTschingelungi/.venv/Scripts/activate"
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/activate"
 }
