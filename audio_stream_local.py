@@ -17,6 +17,49 @@ sounddevice.query_devices()  # get list of devices
 sounddevice.default.device  # get list of ids (int) of devices [microphone_id, 
 # speaker_id]
 
+## Basic usage
+import sounddevice as sd  # noqa
+# sd.default.samplerate = 44100
+# sd.default.device = 'digital output'
+# sd.play(myarray)
+
+# Record and play
+fs = 48000  # default 44100 or 4800
+sd.default.samplerate = fs
+sd.default.channels = 2
+duration = 5  # seconds
+myrecording = sd.rec(duration * fs, samplerate=fs, channels=2)  # does not halt the terminal while recording!
+sd.play(myrecording)  # does not halt the terminal while playing!
+
+import sounddevice as sd  # noqa
+
+
+duration = 2  # seconds
+
+out_dat = []
+
+
+def callback(indata, outdata, frames, time, status):
+    if status:
+        print(status, flush=True)
+    outdata[:] = indata
+    out_dat.append(indata)
+    return out_dat
+len(out_dat)  # noqa
+
+with sd.Stream(channels=2, callback=callback) as sdst:
+    # data = sdst
+    sd.sleep(duration * 1000)
+
+import numpy as np  # noqa
+import matplotlib.pyplot as plt  # noqa
+rec = np.array([[0,0]])
+for seq in out_dat:
+    rec = np.concatenate((rec, seq), axis=0)
+
+fig, axs = plt.subplots(2,1)
+for chan in range(2):
+    axs[chan].plot(rec[5000:20000, chan])
 
 # # # # Use audio stream without sending through socket
 # # # audio_send, context_send = ps.audioCapture(mode='send')

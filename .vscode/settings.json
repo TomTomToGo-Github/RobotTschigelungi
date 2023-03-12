@@ -3,7 +3,8 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
-        "--ignore=W291,E266"
+        "--ignore=W291,E266",
+        "--maxLineCount=140"
     ],
     //
     "editor.formatOnSave": false,
