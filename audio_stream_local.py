@@ -53,11 +53,11 @@ with sd.Stream(channels=2, callback=callback) as sdst:
 
 import numpy as np  # noqa
 import matplotlib.pyplot as plt  # noqa
-rec = np.array([[0,0]])
+rec = np.array([[0, 0]])
 for seq in out_dat:
     rec = np.concatenate((rec, seq), axis=0)
 
-fig, axs = plt.subplots(2,1)
+fig, axs = plt.subplots(2, 1)
 for chan in range(2):
     axs[chan].plot(rec[5000:20000, chan])
 
